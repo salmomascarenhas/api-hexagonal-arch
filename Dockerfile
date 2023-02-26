@@ -6,4 +6,6 @@ RUN npm install -g @nestjs/cli@9
 
 USER node
 
-WORKDIR /home/node/app
+WORKDIR /home/node/app/
+
+CMD [ "tail", "-f", "/dev/null" ]

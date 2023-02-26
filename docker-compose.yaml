@@ -6,15 +6,18 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - .:/home/node/app
+      - .:/home/node/app/
     entrypoint: ./entrypoint.sh
     
     depends_on:
-      - db
+      - database
   
-  db:
+  database:
     image: postgres
+    container_name: database
     restart: always
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
+    ports:
+      - 5432:5432
